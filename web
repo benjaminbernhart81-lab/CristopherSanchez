@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera página</title>
+  <style>
+    .caja{
+        background-color: white;
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow:0 0 15px rgba(0,0,0,0.3);
+        box-sizing: border-box;
+    }
+
+    .foto{
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    body{
+      background:linear-gradient(to bottom,#0000ff,#00aae4);
+      font-family: Times New Roman, Serif;
+      margin: 0;
+    }
+
+    h1 , h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    h1{
+      color:skyblue;
+      text-align: center; 
+      font-size: 35px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    h2{
+      color:blue;
+      text-align: center;
+      font-size: 30px;
+    }
+    
+    ul{
+      color: green;
+      list-style-type:circle;
+      padding-left: 30px;
+      margin-top: 10px;
+    }
+
+
+    ul li {
+    font-size: 18px;       /* Letra más grande */
+    color: #4e91da;        /* Azul suave, más elegante */
+    margin-bottom: 15px;   /* Espacio entre cada razón */
+    font-weight: 500;      /* Un poquito más grueso */
+    display: flex;         /* Alinea texto + botón */
+    align-items: center;
+    gap: 10px;             /* Espacio entre texto y botón */
+    }
+
+
+
+    button{
+      background-color:#5a12df;
+      color: rgb(187, 158, 158);
+      border: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover{
+      background-color: #6536d1;
+    }
+
+    .fila {
+     display: flex;
+     flex-wrap: wrap;      /* Permite que salte abajo */
+     align-items: center;
+     justify-content: center;
+     gap: 20px;
+     background-color: white;
+     padding: 20px;
+     border-radius: 15px;
+     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+     max-width: 900px;
+     margin: auto;
+     margin-bottom: 20px;
+    }
+
+/* Caja ocultable con animación */
+    .detalle {
+      max-height: 0;
+    overflow: hidden;
+     transition: max-height 0.5s ease;
+    }
+
+/* Cuando está activo */
+    .detalle.abierto {
+    max-height: 500px;  /* Ajusta si necesitas más */
+    }
+
+/* Botón moderno */
+    .btn-ver {
+      background-color: #6637e7;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn-ver:hover {
+    background-color: #355bb5;
+    }
+
+/* Tarjeta interna */
+    .tarjeta {
+    background: rgb(255, 255, 255);
+     padding: 15px;
+     margin-top: 12px;
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+     }
+
+    .tarjeta img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    }
+
+    .foto {
+      max-width: 100%;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .texto-lado {
+      width: 100%;
+      font-size: 20px;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+    .fila {
+    flex-direction: column;
+    text-align: center;
+    }
+
+    .texto-lado p {
+     font-size: 18px;
+    }
+
+     ul li {
+    font-size: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    .detalle {width:100% ;
+    flex-basis:100% ;
+    }
+    .tarjeta{
+        margin-top:15px ;
+    }
+    }
+
+
+    .foto2 {
+    max-width: 100%;
+    font-size: 20px;
+    color: #333;
+    }
+
+    .texto-lado {
+      width: 100%;
+      font-size: 20px;
+      color: #333;
+    }
+
+
+
+    p{
+      font-size: 20px;
+      color:blueviolet;
+    }
+  </style>
+</head>
+<script>
+function toggleDetalle(id) {
+    const caja = document.getElementById(id);
+
+    if (caja.classList.contains("abierto")) {
+        caja.classList.remove("abierto");
+        } else {
+        caja.classList.add("abierto");
+    }
+    }
+</script>
+
+
+<body>
+  <div class="caja">
+
+    <img src="https://i.postimg.cc/g2wtsxpZ/japon4k.jpg" class="foto">
+
+    <div class="fila">
+    <img src="https://i.postimg.cc/ydcFnrVH/japon5k.jpg" class="foto2">
+
+
+      <div class="texto-lado">
+        <h2>Cristopher Sanchez</h2>
+        <p>El gordo</p>
+      </div>
+    </div>
+
+    <!-- Tus títulos y lista dentro de la caja -->
+    <h1>Hobbys</h1>
+
+    <ul>
+<li>
+  Futball
+  <button class="btn-ver" onclick="toggleDetalle('Futball')">Ver más</button>
+
+  <div id="Futball" class="detalle">
+    <div class="tarjeta">
+      <p>me gusta pegarle a las pelotas.</p>
+      <img src="https://i.postimg.cc/NjxGdBXw/cultura.jpg">
+    </div>
+  </div>
+</li>
+
+<li>
+  musica
+  <button class="btn-ver" onclick="toggleDetalle('musica')">Ver más</button>
+
+  <div id="musica" class="detalle">
+    <div class="tarjeta">
+      <p>Al rojo vivo es la mejor cancion.</p>
+      <img src="https://i.postimg.cc/Vs3N67w9/gente.jpg">
+    </div>
+  </div>
+</li>
+
+<li>
+  fotografia
+  <button class="btn-ver" onclick="toggleDetalle('idioma')">Ver más</button>
+
+  <div id="idioma" class="detalle">
+    <div class="tarjeta">
+      <p>nose.</p>
+      <img src="https://i.postimg.cc/L5gGwB0m/idioma.jpg">
+    </div>
+  </div>
+</li>
+
+<li>
+  nose
+  <button class="btn-ver" onclick="toggleDetalle('beca')">Ver más</button>
+
+  <div id="beca" class="detalle">
+    <div class="tarjeta">
+      <p>nose.</p>
+      <img src="https://i.postimg.cc/ZRM1wDHP/uneversidad.jpg">
+    </div>
+  </div>
+</li>
+    </ul>
+
+    <p>Pagina hecha por el Benjas.</p>
+</div> 
+</body>
+</html> 
